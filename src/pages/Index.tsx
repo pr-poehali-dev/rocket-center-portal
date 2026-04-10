@@ -4,9 +4,9 @@ import Icon from "@/components/ui/icon";
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/7bb3c060-7952-44c6-a577-9d7b48da4bd7/files/b633c7b9-c056-4f1c-be67-f7e9ae9ccdd0.jpg";
 
 const BRANCHES = [
-  { id: 1, name: "Rocket Center Центр", address: "ул. Ленина, 42", pcs: 48, open: "10:00–02:00" },
-  { id: 2, name: "Rocket Center Север", address: "пр. Победы, 18", pcs: 32, open: "09:00–03:00" },
-  { id: 3, name: "Rocket Center Юг", address: "ул. Гагарина, 7", pcs: 40, open: "10:00–02:00" },
+  { id: 1, name: "Rocket Center Центр", address: "ул. Ленина, 42", pcs: 48, open: "Круглосуточно" },
+  { id: 2, name: "Rocket Center Север", address: "пр. Победы, 18", pcs: 32, open: "Круглосуточно" },
+  { id: 3, name: "Rocket Center Юг", address: "ул. Гагарина, 7", pcs: 40, open: "Круглосуточно" },
 ];
 
 const SERVICES = [
@@ -549,21 +549,31 @@ export default function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
-              { icon: "Phone", label: "Телефон", value: "+7 (900) 000-00-00", sub: "Звонки 10:00–02:00" },
-              { icon: "Mail", label: "Email", value: "hello@rocketcenter.ru", sub: "Ответим за 1 час" },
-              { icon: "MessageCircle", label: "Telegram", value: "@rocketcenter", sub: "Онлайн 24/7" },
+              { role: "PR-менеджер", desc: "Вопросы рекламы и сотрудничества", name: "Иванов Иван Иванович", tg: "@ivanov_rc" },
+              { role: "Технический директор", desc: "Технические вопросы и оборудование", name: "Сергеев Сергей Сергеевич", tg: "@sergeev_rc" },
+              { role: "Генеральный директор", desc: "Общие вопросы и партнёрство", name: "Пугачев Егор Иванович", tg: "@pugachev_rc" },
             ].map(c => (
-              <div key={c.label} className="rounded-lg p-8 text-center transition-all duration-300 hover:-translate-y-1"
+              <div key={c.tg} className="rounded-lg p-8 transition-all duration-300 hover:-translate-y-1"
                 style={{ background: 'rgba(10,10,20,0.8)', border: '1px solid rgba(0,255,136,0.12)' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,255,136,0.35)'}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,255,136,0.12)'}>
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.2)' }}>
-                  <Icon name={c.icon} size={24} className="text-[#00FF88]" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.2)' }}>
+                    <Icon name="User" size={20} className="text-[#00FF88]" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-rajdhani uppercase tracking-widest mb-0.5" style={{ color: '#00FF88' }}>{c.role}</div>
+                    <div className="text-gray-400 text-xs">{c.desc}</div>
+                  </div>
                 </div>
-                <div className="text-xs font-rajdhani uppercase tracking-widest text-gray-500 mb-2">{c.label}</div>
-                <div className="font-rajdhani font-bold text-lg text-white mb-1">{c.value}</div>
-                <div className="text-gray-500 text-xs">{c.sub}</div>
+                <div className="font-golos font-semibold text-white mb-3">{c.name}</div>
+                <a href={`https://t.me/${c.tg.replace('@','')}`} target="_blank" rel="noreferrer"
+                  className="inline-flex items-center gap-2 font-rajdhani font-bold tracking-wider transition-colors hover:opacity-80"
+                  style={{ color: '#00D4FF' }}>
+                  <Icon name="Send" size={15} />
+                  {c.tg}
+                </a>
               </div>
             ))}
           </div>
