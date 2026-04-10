@@ -15,7 +15,7 @@ const SERVICES = [
   { icon: "Wifi", title: "Интернет 1 Гбит", desc: "Никаких лагов. Пинг < 5ms до серверов СНГ" },
   { icon: "Coffee", title: "Бар и снеки", desc: "Энергетики, кофе, бургеры прямо к твоему месту" },
   { icon: "Shield", title: "24/7 техподдержка", desc: "Что-то пошло не так? Мы рядом всегда" },
-  { icon: "Trophy", title: "Турниры", desc: "Еженедельные соревнования с призами до 50 000₽" },
+  { icon: "Users", title: "VIP-комнаты", desc: "Закрытые залы для компаний, геймерских тусовок и LAN-вечеринок. По запросу — VR-станции, Xbox One и PlayStation 5" },
 ];
 
 const TARIFFS = [
@@ -178,7 +178,7 @@ export default function Index() {
               { num: "120+", label: "Игровых ПК" },
               { num: "3", label: "Филиала" },
               { num: "24/7", label: "Работаем" },
-              { num: "50K₽", label: "Призовые" },
+              { num: "VIP", label: "Комнаты" },
             ].map(stat => (
               <div key={stat.label} className="text-center">
                 <div className="font-rajdhani font-bold text-2xl md:text-3xl" style={{ color: '#00FF88', textShadow: '0 0 10px #00FF8880' }}>{stat.num}</div>
@@ -502,13 +502,13 @@ export default function Index() {
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
                 Основаны в 2019 году. За 5 лет выросли до 3 филиалов, 120+ игровых мест и тысяч
-                довольных клиентов. Проводим еженедельные турниры с призовым фондом до 50 000₽.
+                довольных клиентов. Есть VIP-комнаты для компаний, LAN-вечеринок и геймерских тусовок.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { num: "5", label: "Лет на рынке" },
                   { num: "10K+", label: "Клиентов" },
-                  { num: "50+", label: "Турниров в год" },
+                  { num: "VIP", label: "Комнаты" },
                   { num: "4.9★", label: "Рейтинг" },
                 ].map(s => (
                   <div key={s.label} className="rounded-lg p-4" style={{ background: 'rgba(10,10,20,0.8)', border: '1px solid rgba(0,255,136,0.12)' }}>
