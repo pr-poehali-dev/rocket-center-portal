@@ -547,6 +547,31 @@ export default function Index() {
             </h2>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[
+              { icon: "Phone", label: "Телефон", value: "+7 (900) 000-00-00", sub: "Звонки 24/7" },
+              { icon: "Mail", label: "Email", value: "hello@rocketcenter.ru", sub: "Ответим за 1 час" },
+              { icon: "Send", label: "Telegram-канал", value: "@rocketcenter", sub: "Новости и акции" },
+            ].map(c => (
+              <div key={c.label} className="rounded-lg p-6 text-center transition-all duration-300 hover:-translate-y-1"
+                style={{ background: 'rgba(10,10,20,0.8)', border: '1px solid rgba(0,212,255,0.15)' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,212,255,0.4)'}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,212,255,0.15)'}>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3"
+                  style={{ background: 'rgba(0,212,255,0.1)', border: '1px solid rgba(0,212,255,0.2)' }}>
+                  <Icon name={c.icon} size={22} className="text-[#00D4FF]" />
+                </div>
+                <div className="text-xs font-rajdhani uppercase tracking-widest text-gray-500 mb-1">{c.label}</div>
+                <div className="font-rajdhani font-bold text-base text-white mb-0.5">{c.value}</div>
+                <div className="text-gray-500 text-xs">{c.sub}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mb-8">
+            <div className="text-xs font-rajdhani uppercase tracking-widest mb-4" style={{ color: '#00FF88' }}>Команда</div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
               { role: "PR-менеджер", desc: "Вопросы рекламы и сотрудничества", name: "Иванов Иван Иванович", tg: "@ivanov_rc" },
